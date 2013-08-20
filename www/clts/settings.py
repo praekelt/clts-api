@@ -136,6 +136,7 @@ INSTALLED_APPS = (
     'raven.contrib.django.raven_compat',
     'debug_toolbar',
 
+    'champions',
 )
 
 # A sample logging configuration. The only tangible logging
