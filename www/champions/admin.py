@@ -1,17 +1,10 @@
 from django.contrib import admin
 
-from .models import CommunityChampion, Activation
+from .models import Champion
 
 
-class CommunityChampionAdmin(admin.ModelAdmin):
-	list_display = ('name', 'msisdn',)
+class ChampionAdmin(admin.ModelAdmin):
+	list_filter = ('activated', 'activation_date',)
+	list_display = ('name', 'msisdn', 'activated')
 
-
-class ActivationAdmin(admin.ModelAdmin):
-	list_filter = ('activation_date',)
-	list_display = ('entered', 'matched', 'activation_date',)
-	readonly_fields = ('activation_date',)
-
-
-admin.site.register(CommunityChampion, CommunityChampionAdmin)
-admin.site.register(Activation, ActivationAdmin)
+admin.site.register(Champion, ChampionAdmin)

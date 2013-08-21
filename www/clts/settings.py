@@ -18,11 +18,11 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'clts',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': abspath('devel.sqlite'),
         'USER': '',
         'PASSWORD': '',
-        'HOST': 'localhost',
+        'HOST': '',
         'PORT': '',
     }
 }
@@ -45,7 +45,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = False
+USE_I18N = True
 
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale.
@@ -135,6 +135,7 @@ INSTALLED_APPS = (
     'django_nose',
     'raven.contrib.django.raven_compat',
     'debug_toolbar',
+    'rest_framework',
 
     'champions',
 )
@@ -183,6 +184,7 @@ SOUTH_TESTS_MIGRATE = False  # Do not run the migrations for our tests.
                              # We are assuming that our models.py are correct
                              # for the tests and as such nothing needs to be
                              # migrated.
+
 
 # Sentry configuration
 RAVEN_CONFIG = {
