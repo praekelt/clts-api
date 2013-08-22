@@ -10,7 +10,6 @@ from .models import Champion
 class ChampionApiTest(APITestCase):
 
     def setUp(self):
-
         Champion.objects.create(name='Mr Dijkstra', msisdn='1234567890')
         Champion.objects.create(name='Mr Turing', msisdn='0987654321')
 
@@ -23,9 +22,4 @@ class ChampionApiTest(APITestCase):
         url = reverse('champion-activate', args=('0987654321',))
         response = self.client.post(url, None, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_champions_not_exposed_via_api(self):
-        url = reverse('champion-list')
-        print url
-        response = self.client.get(url, format='json')
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+    
