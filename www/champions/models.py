@@ -18,3 +18,16 @@ class Champion(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+class Village(models.Model):
+    name = models.CharField(max_length=128)
+    champion = models.ForeignKey('Champion')
+    latitude = models.CharField(max_length=16, blank=True)
+    longitude = models.CharField(max_length=16, blank=True)
+
+    class Meta:
+        pass
+
+    def __unicode__(self):
+        return self.name
