@@ -176,15 +176,10 @@ DEBUG_TOOLBAR_CONFIG = {
     'ENABLE_STACKTRACES': True,
 }
 
-# South configuration variables
+# Django Nose and South configuration variables
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-SKIP_SOUTH_TESTS = True     # Do not run the south tests as part of our
-                            # test suite.
-SOUTH_TESTS_MIGRATE = False  # Do not run the migrations for our tests.
-                             # We are assuming that our models.py are correct
-                             # for the tests and as such nothing needs to be
-                             # migrated.
-
+SKIP_SOUTH_TESTS = True
+SOUTH_TESTS_MIGRATE = False
 
 # Sentry configuration
 RAVEN_CONFIG = {
