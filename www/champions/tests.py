@@ -19,7 +19,10 @@ class ChampionApiTest(APITestCase):
                                     msisdn='1234567890')
 
     def test_activate_champion_via_api(self):
-        url = reverse('champion-activate', args=('0987654321',))
+        msisdn = '0987654321'
+        url = reverse('champion-activate', args=(msisdn,))
         response = self.client.post(url, None, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-    
+
+        c = Champion.objects.get(msisdn=msisdn)
+        self.assertTrue(c.activated)
