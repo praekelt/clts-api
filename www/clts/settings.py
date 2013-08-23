@@ -138,6 +138,7 @@ INSTALLED_APPS = (
     'rest_framework',
 
     'champions',
+    'faqs',
 )
 
 # A sample logging configuration. The only tangible logging

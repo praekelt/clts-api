@@ -7,6 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('',	
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^api/v1/champions/', include('champions.urls')),
+    url(r'^api/v1/faqs/', include('faqs.urls')),
 )
 
 if settings.DEBUG:

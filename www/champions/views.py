@@ -16,3 +16,4 @@ def activate(request, msisdn):
 
     villages = Village.objects.filter(champion=champion)
     return Response(VillageSerializer(villages, many=True).data)
+
