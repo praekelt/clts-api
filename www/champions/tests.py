@@ -1,14 +1,14 @@
-from django.test import TestCase
 from django.db import IntegrityError
 from django.utils.simplejson import loads
-
 from django.core.urlresolvers import reverse
+
 from rest_framework import status
 from rest_framework.test import APITestCase
 
 from .models import Champion, Village
 
-class ChampionApiTest(APITestCase):
+
+class ChampionTest(APITestCase):
 
     def setUp(self):
 
