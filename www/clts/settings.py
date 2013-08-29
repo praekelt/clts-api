@@ -107,6 +107,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 )
 
 ROOT_URLCONF = 'clts.urls'
@@ -136,6 +137,7 @@ INSTALLED_APPS = (
     'raven.contrib.django.raven_compat',
     'debug_toolbar',
     'rest_framework',
+    'corsheaders',
 
     'champions',
     'faqs',
@@ -187,3 +189,6 @@ RAVEN_CONFIG = {
     # DevOps will supply you with this.
     # 'dsn': 'http://public:secret@example.com/1',
 }
+
+# CORS
+CORS_ORIGIN_ALLOW_ALL = True
