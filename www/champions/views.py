@@ -14,6 +14,12 @@ def activate(request, msisdn):
     except Champion.DoesNotExist:
         return Response(status=404)
 
+
     villages = Village.objects.filter(champion=champion)
-    return Response(VillageSerializer(villages, many=True).data)
+    response = {
+        'champion': ChampionSerializer(champion).data,
+        'villages': VillageSerializer(villages, many=True).data
+    }
+    
+    return Response(response)
 

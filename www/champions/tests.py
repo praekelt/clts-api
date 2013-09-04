@@ -34,11 +34,14 @@ class ChampionTest(APITestCase):
         c = Champion.objects.get(msisdn=self.msisdn_2)
         self.assertTrue(c.activated)
 
-    def test_activate_champions_returns_villages(self):
+    def test_activate_champions_returns_data(self):
         url = reverse('champion-activate', args=(self.msisdn_1,))
         response = self.client.post(url, None, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-        villages = loads(response.content)
-        self.assertEqual(len(villages), 2)
-        self.assertEqual(villages[0]['name'], 'South Side')
+        data = loads(response.content)
+
+        self.assertTrue(data['champion']['activated'])
+
+        self.assertEqual(len(data['villages']), 2)
+        self.assertEqual(data['villages'][0]['name'], 'South Side')
