@@ -7,7 +7,7 @@ from rest_framework.test import APITestCase
 from .models import Category, Page
 
 
-class FAQTest(APITestCase):
+class PagesTest(APITestCase):
 
     def setUp(self):
 
@@ -18,7 +18,8 @@ class FAQTest(APITestCase):
         Page.objects.create(title="Manual", category=self.cat_training)
         Page.objects.create(title="Rope", category=self.cat_training)
 
-    def test_faqs_response(self):
+    def test_pages_response(self):
+
         url = reverse('pages-list', args=(self.cat_training.slug,))
         
         response = self.client.get(url, format='json')
@@ -26,5 +27,5 @@ class FAQTest(APITestCase):
 
         pages = loads(response.content)
         self.assertEqual(len(pages), 3)
-        # self.assertEqual(pages[0]['question'], '?')
-        # self.assertEqual(pages[2]['answer'], 'the world.')
+        self.assertEqual(pages[0]['title'], 'Day')
+        self.assertEqual(pages[2]['title'], 'Rope')
