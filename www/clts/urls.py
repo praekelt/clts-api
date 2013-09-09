@@ -8,6 +8,7 @@ urlpatterns = patterns('',
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^api/v1/champions/', include('champions.urls')),
     url(r'^api/v1/faqs/', include('faqs.urls')),
+    url(r'^api/v1/pages/', include('pages.urls')),
 )
 
 if settings.DEBUG:

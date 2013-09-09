@@ -141,6 +141,7 @@ INSTALLED_APPS = (
 
     'champions',
     'faqs',
+    'pages',
 )
 
 # A sample logging configuration. The only tangible logging
